@@ -11,41 +11,53 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
 class ClassMarks {
 
     // function to generate the marks for the array
-    public static String[][] generateMarks(String[] studentArray, String[] assignmentArray) {
+    public String[][] generateMarks(String[] studentArray, String[] assignmentArray) {
+
+        // declaring Random object
+        Random random = new Random();
+        double mark;
 
         // array with everything in it
         String[][] finalArray = new String[studentArray.length][assignmentArray.length + 1];
 
         // for every student generate a mark for every assignment
-        for (int stuIndex = 0; stuIndex < studentArray.length; stuIndex = stuIndex + 1) {
+        for (int stuIndex = 0; stuIndex < studentArray.length; stuIndex++) {
 
-            // string for the assignment with the student names
-            String[] marks = new String[assignmentArray.length + 1];
+            // copy the student name to the array
+            finalArray[stuIndex][0] = studentArray[stuIndex];
+            
 
-            for (int assignIndex = 0; assignIndex < assignmentArray.length; assignIndex = assignIndex + 1) {
+            // for every assignment generate a mark
+            for (int assignIndex = 1; assignIndex < assignmentArray.length + 1; assignIndex++) {
 
                 // generating the marks with a derivative of 10
-                marks = random.nextGaussian() * 10 + 75;
+                mark = random.nextGaussian() * 10 + 75;
+
+
+                // putting mark as string into array
+                finalArray[stuIndex][assignIndex] = Double.toString(mark);
             }
         }
 
-        return marks;
+        System.out.println(finalArray);
+
+        return finalArray;
     }
 
     public static void main(String[] args) {
 
         // delcaring variables
-        String st;
         ArrayList<String> txtList = new ArrayList<String>();
         int checkingInt = -1;
 
         // reading the text file
-        File studentArray = new File("C:\\Users\\s278552\\Downloads\\students.txt");
-        File assignmentArray = new File("C:\\Users\\s278552\\Downloads\\assignments.txt");
+        File studentArray = new File(".\\students.txt");
+        File assignmentArray = new File(".\\assignments.txt");
 
     }
 
