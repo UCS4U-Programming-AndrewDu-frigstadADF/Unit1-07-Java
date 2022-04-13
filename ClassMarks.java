@@ -52,8 +52,10 @@ class ClassMarks {
         ArrayList<String> assignTxtList = new ArrayList<String>();
 
         // reading the text file
-        File studentArray = new File("C:\\Users\\s278552\\Downloads\\students.txt");
-        File assignmentArray = new File("C:\\Users\\s278552\\Downloads\\assignments.txt");
+        //File studentArray = new File("C:\\Users\\s278552\\Downloads\\students.txt");
+        //File assignmentArray = new File("C:\\Users\\s278552\\Downloads\\assignments.txt");
+        File assignmentArray = new File (".\\assign.txt");
+        File studentArray = new File (".\\students.txt");
 
         // scanners
         Scanner assignArray = new Scanner(assignmentArray);
@@ -63,12 +65,14 @@ class ClassMarks {
         while (stuArray.hasNextLine()) {
             String students = stuArray.nextLine();
             stuTxtList.add(students);
+            System.out.println("Added student: " + students);
         }
 
         // make a list with the scanner
         while (assignArray.hasNextLine()) {
             String assignments = assignArray.nextLine();
             assignTxtList.add(assignments);
+            System.out.println("Added assignment: " + assignments);
         }
 
         // converting the list to an array
