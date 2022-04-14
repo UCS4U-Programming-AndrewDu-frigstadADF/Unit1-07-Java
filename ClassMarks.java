@@ -39,9 +39,6 @@ class ClassMarks {
                 finalArray[stuIndex][assignIndex] = Double.toString(mark);
             }
         }
-
-        System.out.println(finalArray);
-
         return finalArray;
     }
 
@@ -52,10 +49,8 @@ class ClassMarks {
         ArrayList<String> assignTxtList = new ArrayList<String>();
 
         // reading the text file
-        //File studentArray = new File("C:\\Users\\s278552\\Downloads\\students.txt");
-        //File assignmentArray = new File("C:\\Users\\s278552\\Downloads\\assignments.txt");
-        File assignmentArray = new File (".\\assign.txt");
-        File studentArray = new File (".\\students.txt");
+        File studentArray = new File("C:\\Users\\s278552\\Downloads\\students.txt");
+        File assignmentArray = new File("C:\\Users\\s278552\\Downloads\\assignments.txt");
 
         // scanners
         Scanner assignArray = new Scanner(assignmentArray);
@@ -82,9 +77,15 @@ class ClassMarks {
         // calling the generateMarks function for the final array
         String[][] finalArray = generateMarks(arrayOfStudents, arrayOfAssignments);
 
-        // printing the final array
-        System.out.println(finalArray);
+        // printing out the marks
+        for (String[] arrayStu : finalArray) {
+            for (int i = 0; i < arrayStu.length; i++) {
+
+                System.out.print(arrayStu[i] + ", ");
+
+            }
+            System.out.println("");
+        }
 
     }
-
 }
