@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 import java.io.File;
+import java.lang.Math;
 
 class ClassMarks {
 
@@ -34,6 +35,7 @@ class ClassMarks {
 
                 // generating the marks with a derivative of 10
                 mark = random.nextGaussian() * 10 + 75;
+                mark = Math.round(mark);
 
                 // putting mark as string into array
                 finalArray[stuIndex][assignIndex] = Double.toString(mark);
@@ -49,8 +51,8 @@ class ClassMarks {
         ArrayList<String> assignTxtList = new ArrayList<String>();
 
         // reading the text file
-        File studentArray = new File("C:\\Users\\s278552\\Downloads\\students.txt");
-        File assignmentArray = new File("C:\\Users\\s278552\\Downloads\\assignments.txt");
+        File studentArray = new File("C:\\Users\\andye\\Downloads\\students.txt");
+        File assignmentArray = new File("C:\\Users\\andye\\Downloads\\assignments.txt");
 
         // scanners
         Scanner assignArray = new Scanner(assignmentArray);
